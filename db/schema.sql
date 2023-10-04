@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS skincare_db;
+CREATE DATABASE skincare_db;
+
