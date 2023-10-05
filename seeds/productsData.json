@@ -1,0 +1,18 @@
+[
+    {
+      "ProductTypes": "Cleanser",
+      "ProductName": "Foaming Liquid",
+      "ProductDescription": "When activated with water or pumped into your palm, this cleanser morphs into an airy foam that helps break down dirt and excess sebum from pores.",
+     "ProductPrice":23
+    },
+    {
+      "ProductTypes": "Moisturizer",
+      "ProductName": "Gel Moisturizer",
+      "ProductDescription": "A mostly water-based option that's lightweight and absorbs quickly."
+    },
+    {
+      "ProductTypes": "Serum",
+      "ProductName": "Hyaluronic Acid",
+      "ProductDescription": "Calms redness, plumps skin, improves fine lines."
+    }
+  ]
