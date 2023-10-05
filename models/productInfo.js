@@ -32,13 +32,13 @@ productInfo.init(
       defaultValue: DataTypes.NOW,
     },
  
-    skin_id: {
-      type: DataTypes.INTEGER,
-      references: {
-        model: 'SkinType',
-        key: 'id',
-      },
-    },
+    // skin_id: {
+    //   type: DataTypes.INTEGER,
+    //   references: {
+    //   model: 'SkinType',
+    //     key: 'id',
+    //   },
+    // },
   },
   {
     sequelize,
@@ -50,4 +50,4 @@ productInfo.init(
 );
 
 
-module.exports = Products;
+module.exports = productInfo;

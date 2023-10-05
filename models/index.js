@@ -10,7 +10,7 @@ const productInfo = require('./productInfo')
 //   foreignKey: 'skin_id' 
 // });
 
-Products.belongsTo(quizData, {
+productInfo.belongsTo(quizData, {
   foreignKey: 'skin_id'
 });
 
