@@ -12,6 +12,7 @@
   "license": "MIT",
   "dependencies": {
     "bcryptjs": "^2.4.3",
+    "chart.js": "^4.4.0",
     "connect-session-sequelize": "^7.1.6",
     "dotenv": "^16.0.3",
     "eslint": "^8.39.0",
