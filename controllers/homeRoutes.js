@@ -4,7 +4,7 @@ const withAuth = require('../utils/auth');
 
 
 router.get('/', async (req, res) => {
-  res.render('home');
+  res.render('homepage');
 });
 
 
@@ -18,11 +18,11 @@ router.get('/quiz', (req, res) => {
 });
 
 
-router.get('/blog', (req, res) => {
-  res.render('blog');
+router.get('/forum', (req, res) => {
+  res.render('forum');
 });
 
-
+// logo image is connected to this. - Eric
 router.get('/homepage', (req, res) => {
   res.render('homepage');
 });
