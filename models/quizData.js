@@ -17,8 +17,9 @@ quizData.init(
       primaryKey: true,
       autoIncrement: true,
     },
-    skintype: {
+    skin_type: {
       type: DataTypes.STRING,
+      defaultValue: "oily",
       allowNull: false,
     },
     skinconcerns:{

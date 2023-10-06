@@ -14,5 +14,4 @@ productInfo.belongsTo(quizData, {
   foreignKey: 'skin_id'
 });
 
-
 module.exports = { userInfo, quizData, productInfo};
