@@ -23,9 +23,9 @@ userInfo.init(
       allowNull: false,
     },
     // USER INFO , GETTING ERRORS? NEED TO WORK ON THIS ! -eric
-    // skinType: {
-    //   type:DataTypes.STRING,
-    // },
+    skin_type: {
+      type:DataTypes.STRING,
+    },
     // skinConcerns:{
     //   type: DataTypes.STRING
     // },

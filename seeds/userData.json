@@ -3,21 +3,21 @@
       "name": "Sal",
       "email": "sal@hotmail.com",
       "password": "password12345",
-      "skinType":"oily",
+      "skin_type":"oily",
       "skinConcerns":"hyperpigmentation"
     },
     {
       "name": "Lernantino",
       "email": "lernantino@gmail.com",
       "password": "password12345",
-      "skinType":"dry",
+      "skin_type":"dry",
       "skinConcerns":"inflammation"
     },
     {
       "name": "Amiko",
       "email": "amiko2k20@aol.com",
       "password": "password12345",
-      "skinType":"combination",
+      "skin_type":"combination",
       "skinConcerns":"acne-prone"
     }
   ]

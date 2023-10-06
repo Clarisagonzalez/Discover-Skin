@@ -1,0 +1,20 @@
+[
+    {
+        "date": "2012-04-23",
+        "question": "what is your skin type?",
+        "response": "dry",
+        "user":"cliniquelover34"
+    },
+    {
+        "date": "2023-01-13",
+        "question": "what are your skin concerns?",
+        "response": "hyperpigmentation",
+        "user":"skincaregirly"
+    },
+    {
+        "date": "2022-12-31",
+        "question": "Daytime or nighttime routine?",
+        "response": "daytime",
+        "user":"mikemomo"
+    }
+  ]
