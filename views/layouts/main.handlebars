@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skin Discovery</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Alice&family=Montserrat&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/login.css">
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+
+<body>
+    <header>
+        <div class="container">
+            <div class="nav">
+              <a href="/homepage"><img src="images/skinLogo4.png" class="logo"></a>
+
+                {{!-- <img src="images/skinLogo4.png" class="logo"> --}}
+                <nav>
+                  <ul>
+                    <li><a class="nav1" href="/quiz">skin quiz</a></li>
+                    <li><a class="nav1" href="/products">products</a></li>
+                    <li><a class="nav1" href="/blog"> forum </a></li>
+                    <li class="nav2">{{#if logged_in}}
+                          <button class="no-button" id="logout">log out</button> <br>
+                          <a class="nav2a"  href="/profile">profile</a> 
+                        {{else}}
+                          <a class="nav2a"  href="/login">log in</a>
+                        {{/if}}</li>
+                          <!-- Render script for logged in users only -->
+                        {{#if logged_in}}
+                          <script src="/js/logout.js"></script>
+                        {{/if}}
+                  </ul>
+                </nav>
+            </div>
+        </div>   
+    </header>
+    
+   <main>
+        {{{body}}}
+   </main>
+
+  <footer>
+    
+  </footer>
+</body>
+
+{{!-- <body>
+  <div class="flex-column justify-space-around">
+    <header class="display-flex justify-space-between align-center p-2">
+
+    </header>
+    
+    <footer>
+      
+    </footer>
+  </div>
+
+
+</body>
+
+</html> --}}

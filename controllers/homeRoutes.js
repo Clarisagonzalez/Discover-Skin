@@ -46,25 +46,25 @@ router.get('/login', (req, res) => {
 });
 
 
-// Use withAuth middleware to prevent access to route
-router.get('/profile', withAuth, async (req, res) => {
-  try {
-    // Find the logged in user based on the session ID
-    const userData = await userInfo.findByPk(req.session.user_id, {
-      attributes: { exclude: ['password'] },
-    });
+// // Use withAuth middleware to prevent access to route
+// router.get('/profile', withAuth, async (req, res) => {
+//   try {
+//     // Find the logged in user based on the session ID
+//     const userData = await userInfo.findByPk(req.session.user_id, {
+//       attributes: { exclude: ['password'] },
+//     });
+//     console.log("working");
 
-
-    const user = userData.get({ plain: true });
-    console.log('pineapple');
-    res.render('profile', {
-      ...user,
-      logged_in: true
-    });
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     const user = userData.get({ plain: true });
+//     console.log('pineapple', user);
+//     res.render('profile', {
+//       ...user,
+//       logged_in: true
+//     });
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 
 
