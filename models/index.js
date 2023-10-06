@@ -1,6 +1,7 @@
 const userInfo = require('./userInfo');
 const quizData = require('./quizData');
-const productInfo = require('./productInfo')
+const productInfo = require('./productInfo');
+const forum = require('./forum');
 
 // REMINDER WE NEED TO DO THIS! - ERIC
 // User.hasMany(SkinType, {
@@ -14,4 +15,4 @@ productInfo.belongsTo(quizData, {
   foreignKey: 'skin_id'
 });
 
-module.exports = { userInfo, quizData, productInfo};
+module.exports = { userInfo, quizData, productInfo, forum};
