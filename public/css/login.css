@@ -1,0 +1,99 @@
+.leftgraphic {
+    width: 200px;
+    height: 200px;
+    position: relative;
+    top: 230px;
+    left: 40px;
+}
+
+
+.tab1 {
+    position: relative;
+    top: 50px;
+    left: 70px;
+    font-family: 'Montserrat', sans-serif;
+    color:#664524;
+}
+
+
+.rightgraphic {
+    width: 160px;
+    height: 160px;
+    position: relative;
+    top: 50px;
+    left: 95px;
+}
+
+
+.tab2 {
+    position: relative;
+    top: 20px;
+    left: 130px;
+    font-family: 'Lora', serif;
+   
+}
+
+
+.form-input {
+    width: 230px;
+    padding: 3%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    border: none;
+    cursor: pointer;
+}
+
+
+.loginBtn {
+    width: 246px;
+    padding: 3%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    cursor: pointer;
+    border-color: #E75353;
+    background-color: #E75353;
+    color: #FDF9F5;
+}
+
+
+h4 {
+    margin-bottom: 2%;
+    margin-top: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    justify-content: center;
+   
+}
+
+
+.tab2heading {
+    width: 300px;
+    padding-left: 10%;
+    padding-top: 5%;
+   
+}
+
+
+.tab2content {
+    font-family: 'Montserrat', sans-serif;
+    color: #664524;
+    position: absolute;
+    left: 80px;
+    top: 55px;
+}
+
+
+.tab2listheading {
+    text-align: center;
+    width: 350px;
+   
+}
+
+
+.tab2list {
+    margin-left:  13%;
+ 
+   
+}
+
+
