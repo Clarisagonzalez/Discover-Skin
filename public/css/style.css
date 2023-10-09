@@ -1,0 +1,119 @@
+
+/* 
+font-family: 'Lora', serif; 
+font-family: 'Montserrat', sans-serif; */
+
+* {
+    margin: 0;
+    padding: 0;
+  }
+  
+  body {
+    height: 100vh;
+    width: 100%;
+    background-image: url(../images/watusi-beige-acrylic-texture-background-wallpaper.jpg);
+    background-position: center;
+    background-size: cover;
+    padding-left: 2%;
+    padding-right: 2%;
+    box-sizing: border-box;
+    position: relative;
+  }
+  
+  .nav {
+    width: 100%;
+    height: 15vh;
+    margin: auto;
+    display: flex;
+    align-items: center;
+  }
+  
+  .logo {
+    margin-top: 50px;
+    width: 270px;
+    height: 230px;
+    cursor: pointer; 
+  }
+  
+  nav {
+    flex: 1;
+    margin: 0;
+    padding-left: 20px;
+  }
+  
+  nav ul li {
+    padding-left: 30px;
+    padding-right: 30px;
+    padding-top: 60px;
+    padding-bottom: 30px;
+    display: inline-block;
+    list-style: none;
+    margin-left: 70px;
+    background-color: #FDF9F5;
+    border-bottom-left-radius: 50%;
+    border-bottom-right-radius: 50%;
+  }
+  
+  nav ul li a {
+    font-family: 'Montserrat', sans-serif;
+    text-decoration: overline;
+    text-decoration-color: #664524;
+    color: #CB5F2B; 
+  }
+  
+  .nav2 {
+    background-color: #E75353;
+    text-decoration-color: #664524;
+    color: #FDF9F5;
+  }
+  
+  .nav1 {
+    box-shadow: inset 0 0 0 0 #CB5F2B;
+    color: #664524;
+    margin: 0 -.25rem;
+    padding: 0 .5rem;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-radius: 5px;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  }
+  
+  .nav1:hover {
+    box-shadow: inset 100px 0 0 0 #664524;
+    color: #FDF9F5;
+  }
+  
+  .nav2a {
+    box-shadow: inset 0 0 0 0 #664524;
+    color: #FDF9F5;
+    margin: 0 -.25rem;
+    padding: 0 .5rem;
+    padding-top: 1px;
+    padding-bottom: 1px;
+    border-radius: 5px;
+    transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
+  }
+  
+  .nav2a:hover {
+    box-shadow: inset 100px 0 0 0 #664524;
+    color: #FDF9F5;
+  }
+  
+  .quizContainer {
+    display: flex;
+  }
+  
+  .no-button {
+    justify-content: center;
+    width: 100%;
+    height: 130%;
+    position: relative;
+    bottom: 10px;
+    font-family:'Montserrat', sans-serif;
+    background-color: #664524;
+    border-color: #664524;
+    cursor: pointer;
+    font-size: smaller;
+    color: #FDF9F5;
+  }
+  
