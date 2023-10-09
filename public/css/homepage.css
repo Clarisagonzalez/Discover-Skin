@@ -1,0 +1,89 @@
+main {
+    display: flex;
+}
+
+
+.homegraphicL {
+    width: 230px;
+    height: 230px;
+    position: absolute;
+    top: 180px;
+    left: 20px;
+}
+
+
+.tab1 {
+    position: relative;
+    top: 20px;
+    left: 160px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+.homeheading {
+    width: 350px;
+    position: relative;
+    top: 30px;
+    left: 95px;
+}
+
+
+.tab1text1 {
+    position: relative;
+    top: 40px;
+    left: 40px;
+    text-align: center;
+    max-width: 450px;
+}
+
+
+.homebtn {
+    width: 280px;
+    position: relative;
+    top: 40px;
+    left: 80px;
+    cursor: pointer;
+}
+
+
+.tab1text2 {
+    margin-left: 0;
+    position: relative;
+    top: 40px;
+    text-align: center;
+    max-width: 400px;
+}
+
+
+.homegraphicR {
+    width: 230px;
+    height: 230px;
+    position: absolute;
+    top: 180px;
+    left: 570px;
+}
+
+
+.tab2 {
+    position: relative;
+    top: 20px;
+    font-family: 'Montserrat', sans-serif;  
+}
+
+
+.hometab2 {
+    width: 420px;
+    position: relative;
+    left: 200px;
+    top: 60px;
+}
+
+
+.tab2text1 {
+    max-width: 250px;
+    text-align: center;
+    position: relative;
+    bottom: 25px;
+    color: #664524;
+    font-size: smaller;
+}
