@@ -2,6 +2,13 @@ main {
     display: flex;
 }
 
+.submit {
+    width: 100%;
+}
+
+.submit-text {
+    width: 100%;
+}
 
 .tab1 {
     position: absolute;
@@ -20,7 +27,7 @@ main {
 
 
 .profiletab2 {
-    width: ;
+    /* width: ; */
     position: relative;
     left: 650px;
     top: 40px;
