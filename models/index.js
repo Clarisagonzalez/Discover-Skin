@@ -1,6 +1,7 @@
 const userInfo = require('./userInfo');
 const quizData = require('./quizData');
 const productInfo = require('./productInfo');
+const research = require('./research');
 const forum = require('./forum');
 
 // REMINDER WE NEED TO DO THIS! - ERIC
@@ -15,4 +16,4 @@ productInfo.belongsTo(quizData, {
   foreignKey: 'skin_id'
 });
 
-module.exports = { userInfo, quizData, productInfo, forum};
+module.exports = { userInfo, quizData, productInfo, forum, research};
