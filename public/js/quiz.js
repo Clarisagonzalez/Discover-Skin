@@ -37,14 +37,14 @@ var questions = [
       ]
   },
   {
-    headline: "Serums give your skin the targetted boost its looking for. You can select as many skincare goals as you want, but we reccommend a maximum usage of three serums per day, otherwise your skin may be overwhelmed",
+      headline: "Serums give your skin the targetted boost its looking for. You can select as many skincare goals as you want, but we reccommend a maximum usage of three serums per day, otherwise your skin may be overwhelmed",
       question: "For your custom serum routine, select your primary skincare goals:",
-    answers: [
-      { text: "Hydration", correct: false, selected: true },
-      { text: "Brightening", correct: false, selected: true },
-      { text: "Anti-aging", correct: false, selected: true },
-      { text: "Relieving skin sensitivity", correct: false, selected: true },
-    ]
+      answers: [
+          {text: "Hydration", correct: false},
+          {text: "Brightening", correct: true},
+          {text: "Anti-aging", correct: false},
+          {text: "Relieving skin sensitivity", correct: false},
+      ]
   },
   {
       headline: "Toners give your pores a deep clean, and when used regularly, it can have a major positive impact on the appearance and tightness of your pores.",
@@ -142,6 +142,10 @@ function nextQuestion() {
   }
 }
 
+// odds disable all other buttons
+// evens re-enable all other buttons
+// selected button is not affected by this conditional
+
 // var count = 0;
 
 
@@ -176,53 +180,6 @@ function selectAnswer (e) {
             nextButton.style.display="none";
         });
     })
-
-// ERIC START JERE
-
-function selectAnswer(e) {
-    var selectedButton = e.target;
-    var selectedAnswer = questions[currentQuestionIndex].answers.find(answer => answer.text === selectedButton.innerText);
-  
-    // Toggle the 'selected' property
-    selectedAnswer.selected = !selectedAnswer.selected;
-  
-    // Add or remove a class to indicate selection (you can style it accordingly)
-    if (selectedAnswer.selected) {
-      selectedButton.classList.add("selected");
-    } else {
-      selectedButton.classList.remove("selected");
-    }
-  
-    // Optionally, update your user interface here if needed
-  }
-  
-  function showQuestion() {
-    // ... previous code ...
-  
-    currentQuestion.answers.forEach(answer => {
-      var button = document.createElement("button");
-      button.innerHTML = answer.text;
-      button.classList.add("button");
-  
-      // Check the 'selected' property to add a class if it's selected
-      if (answer.selected) {
-        button.classList.add("selected");
-      }
-  
-      answerButtonElement.appendChild(button);
-  
-      if (answer.correct) {
-        button.dataset.correct = answer.correct;
-      }
-  
-      button.addEventListener("click", selectAnswer);
-    });
-  
-    // ... rest of the code ...
-  }
-
-// END
-
 
     // all we needed to do here was show the button the eventListener is working
     // we only want the next button to show when all buttons are enabled 
