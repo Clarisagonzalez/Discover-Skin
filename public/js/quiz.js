@@ -1,8 +1,13 @@
 // ISSUES
 // 1. headline is not changing per question
 // 2. how to add multiple answers? (checkboxes?)
-// possible solution: add a next button so screen doesnt change out
+// possible solution: add a next button so screen doesnt change out -- done
 // disable a button after its been clicked once... unclick it
+
+// answer buttons: 1) clicking it once stores data, clicking twice unstores data. 2) for all questions except the serum question, upon clicking one answer, all other buttons should disable unless that button is clicked again, then they will be re-enabled. 3) for only the serum question, the buttons will not disable after clicking a button. clicking one button twice will still unstore the data. 
+// local storage used for to api call
+// change the color to match disable and enable state
+
 // clicking it again should unstore data
 // 3. change font to montserrat + colors to match theme
 // 4. remove correct/incorrect and store info instead
@@ -10,8 +15,6 @@
 // 6. progress stepper which highlights the skin routine as well as quiz progress on the left. 
 
 // Lots of commented out stuff at the bottom. 
-
-
 
 var questions = [
   {
@@ -85,21 +88,22 @@ function startQuiz () {
   currentQuestionIndex = 0;
   score = 0;
   nextButton.innerHTML = "Next";
-  showHeadline();
   showQuestion();
 }
 
-function showHeadline () {
-  resetState();
-  var currentQuestion = questions[currentQuestionIndex];
-  headlineElement.innerHTML = currentQuestion.headline;
-};
+// function showHeadline () {
+//   resetState();
+//   var currentQuestion = questions[currentQuestionIndex];
+
+// };
 
 function showQuestion () {
   resetState();
   var currentQuestion = questions[currentQuestionIndex];
   var questionNumber = currentQuestionIndex + 1;
   questionElement.innerHTML = questionNumber + ". " + currentQuestion.question;
+
+  headlineElement.innerHTML = currentQuestion.headline;
 
   currentQuestion.answers.forEach(answer => {
       var button = document.createElement("button");
@@ -120,10 +124,10 @@ function resetState () {
 }
 }
 
-function showScore () {
-  scoreElement.innerHTML = `score + " /10"`;
+// function showScore () {
+//   scoreElement.innerHTML = `score + " /10"`;
 
-}
+// }
 
 function nextQuestion() {
   currentQuestionIndex++;
@@ -134,9 +138,25 @@ function nextQuestion() {
   }
 }
 
+// odds disable all other buttons
+// evens re-enable all other buttons
+// selected button is not affected by this conditional
+
+// var count = 0;
+var selectedButton = e.target;
+
+// custom data attribute for each button 
+// use loop to iterate through buttons
+// if data-attr is not 1 (or selected button), disable it 
+// this way it doesnt matter the quantity of answers per question
 
 function selectAnswer (e) {
-  var selectedButton = e.target;
+    count++;
+    console.log(count);
+
+    if (count % 2) {
+        
+    }
   var isCorrect = selectedButton.dataset.correct === "true";
   if (isCorrect) {
       selectedButton.classList.add("correct");
@@ -150,9 +170,9 @@ function selectAnswer (e) {
       if(button.dataset.correct === "true"){
           button.classList.add("correct1");
       }
-      button.disabled = true;
+    //   button.disabled = true;
   });
-  answerButtonElement.addEventListener ("click")
+  nextButton.addEventListener ("click");
       if (currentQuestionIndex < questions.length+1) {
           nextQuestion();
       } else {
@@ -173,7 +193,7 @@ function nextQuestion() {
   };
 }
 
-answerButtonElement.addEventListener ("click", ()=> {
+nextButton.addEventListener ("click", ()=> {
   if (currentQuestionIndex < questions.length+1) {
       nextQuestion();
   } else {
