@@ -1,12 +1,12 @@
 const sequelize = require('../config/connection');
-const {userInfo, quizData, productInfo, forum} = require('../models');
+const {userInfo, quizData, productInfo, forum, skincareData} = require('../models');
 
 
 const userData = require('./userData.json');
 const productsData = require('./productsData.json');
 const quizResponse = require('./quizData.json');
 const forumData = require('./forumData.json');
-// const skinTypes = require('./skinTypes.json')
+const skincareResearch = require('./skincare_research.json');
 
 
 const seedDatabase = async () => {
@@ -23,6 +23,8 @@ const seedDatabase = async () => {
   console.log(quizVar);
   const forumVar = await forum.bulkCreate(forumData);
   console.log(forumVar);
+  const skincareVar = await skincareData.bulkCreate(skincareResearch);
+  console.log(skincareVar);
   // await skinTypes.bulkCreate(skinTypes);
 
   process.exit(0);
