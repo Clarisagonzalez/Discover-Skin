@@ -11,6 +11,8 @@
 
 // Lots of commented out stuff at the bottom. 
 
+
+
 var questions = [
   {
     headline: "Let's begin by creating your base routine, comprising of the ideal cleanser, makeup remover, and moisturizer type.",
