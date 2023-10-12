@@ -105,17 +105,17 @@ function showQuestion () {
 
   headlineElement.innerHTML = currentQuestion.headline;
   
-  var questionNumber = 1;
+  var questionCount = 1;
   currentQuestion.answers.forEach(answer => {
       var button = document.createElement("button");
       button.innerHTML = answer.text; 
       button.classList.add("button");
-      button.setAttribute("data-number",questionNumber); //added the data number attr with the value of the counter that keeps track of what question we are up to
+      button.setAttribute("data-number",questionCount); //added the data number attr with the value of the counter that keeps track of what question we are up to
       answerButtonElement.appendChild(button);
       if(answer.correct) {
           button.dataset.correct = answer.correct;
       }
-      questionNumber++;
+      questionCount++;
       button.addEventListener("click", selectAnswer);
   });
   questionNumber = 1;
