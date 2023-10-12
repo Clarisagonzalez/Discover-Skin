@@ -20,28 +20,34 @@ quizData.init(
     skin_type: {
       type: DataTypes.STRING,
       defaultValue: "oily",
-      allowNull: false,
+      allowNull: true,
     },
-    skinconcerns:{
-      type: DataTypes.STRING
-    },
-    ingredients: {
+    eye_concerns:{
       type: DataTypes.STRING,
+      defaultValue: "under eye bags &/or inflammation",
+      allowNull: true,
     },
-    // Implementing a user. NEED TO WORK ON THIS !! -ERIC
-    // date_created: {
-    //   type: DataTypes.DATE,
-    //   allowNull: false,
-    //   defaultValue: DataTypes.NOW,
-    // }
- 
-    // user_id: {
-    //   type: DataTypes.INTEGER,
-    //   references: {
-    //     model: 'user',
-    //     key: 'id',
-    //   },
-    // },
+    serum_choice: {
+      type: DataTypes.STRING,
+      defaultValue: "hydration",
+      allowNull: true,
+    },
+    toner_choice: {
+      type: DataTypes.STRING,
+      defaultValue: "anti-aging",
+      allowNull: true,
+
+    },
+    spf_ingredient: {
+      type: DataTypes.STRING,
+      defaultValue: "combination",
+      allowNull: true,
+    },
+    lip_concerns: {
+      type: DataTypes.STRING,
+      defaultValue: "dullness",
+      allowNull: true,
+    }
   },
   {
     sequelize,
