@@ -60,9 +60,9 @@ var questions = [
       headline: "We all know the importance of SPF, as UV rays are one of the primary causes for aging.",
       question: "Study the descriptions of each ingredient group and select the type of sunblocker that works best for your skin.",
       answers: [
-          {text: "Chemical - Chemical ingredients, such as oxybenzone and octinoxate, are absorbed into your skin to counteract the damage from UV rays. PROS: They are beneficial because they are lightweight, easy to apply, and transparent on the skin. CONS: However, the chemicals can irritate and cause reactions in those with sensitive skin.Certain ingredients like oxybenzone have raised health concerns and carry a high hazard rating on the EWG's Skin Deep Cosmetic Database.", correct: false},
-          {text: "Physical - Physical (or natural) ingredients, such as titanium dioxide and zinc oxide, sit on top of the skin to physcially deflext and prevent UV rays from entering the body. PROS: It is beneficial because there is very little risk of irritation or health concerns. CONS: However, it can often leave a white or grayish tint on the skin, particularly in those with darker skin tones. ", correct: false},
-          {text: "Combination - A combination of chemical and physical ingredients provide protection from both UVA and UVB rays, and typically do not create any visible residue. This is the perfect middle ground for those with sensitive skin and don't want a white/grayish tint left behind on their skin. ", correct: false},
+          {text: "Chemical - Chemical ingredients, such as oxybenzone and octinoxate, are absorbed into your skin to counteract the damage from UV rays.", },
+          {text: "Physical - Physical (or natural) ingredients, such as titanium dioxide and zinc oxide, sit on top of the skin to physcially deflext and prevent UV rays from entering the body. ", },
+          {text: "Combination - A combination of chemical and physical ingredients provide protection from both UVA and UVB rays, and typically do not create any visible residue. This is the perfect middle ground for those with sensitive skin and don't want a white/grayish tint left behind on their skin. ", },
       ]
   },
   {
