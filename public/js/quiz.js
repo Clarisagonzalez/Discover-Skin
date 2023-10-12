@@ -104,17 +104,21 @@ function showQuestion () {
   questionElement.innerHTML = questionNumber + ". " + currentQuestion.question;
 
   headlineElement.innerHTML = currentQuestion.headline;
-
+  
+  var questionCount = 1;
   currentQuestion.answers.forEach(answer => {
       var button = document.createElement("button");
       button.innerHTML = answer.text; 
       button.classList.add("button");
+      button.setAttribute("data-number",questionCount); //added the data number attr with the value of the counter that keeps track of what question we are up to
       answerButtonElement.appendChild(button);
       if(answer.correct) {
           button.dataset.correct = answer.correct;
       }
+      questionCount++;
       button.addEventListener("click", selectAnswer);
   });
+  questionNumber = 1;
 }
 
 function resetState () {
@@ -143,7 +147,7 @@ function nextQuestion() {
 // selected button is not affected by this conditional
 
 // var count = 0;
-var selectedButton = e.target;
+
 
 // custom data attribute for each button 
 // use loop to iterate through buttons
@@ -151,33 +155,41 @@ var selectedButton = e.target;
 // this way it doesnt matter the quantity of answers per question
 
 function selectAnswer (e) {
-    count++;
-    console.log(count);
+    var selectedButton = e.target;
+    // selectedButton.
+    // count++;
+    // console.log(count);
 
-    if (count % 2) {
-        
-    }
-  var isCorrect = selectedButton.dataset.correct === "true";
-  if (isCorrect) {
-      selectedButton.classList.add("correct");
-      score++;
-      nextButton.style.display="block";
-  } else {
-      selectedButton.classList.add("incorrect");
-      nextButton.style.display="block";
-  }
-  Array.from(answerButtonElement.children).forEach(button => {
-      if(button.dataset.correct === "true"){
-          button.classList.add("correct1");
-      }
-    //   button.disabled = true;
-  });
-  nextButton.addEventListener ("click");
-      if (currentQuestionIndex < questions.length+1) {
-          nextQuestion();
-      } else {
-          startQuiz();
-      }
+    //we have access to the question number that was chosen via ==> selectedButton.getAttribute("data-number")
+    //and we have access to the text of the chosen answer via ==> selectedButton.innerText
+    // this can be helpful when we create out local storage key
+    console.log(selectedButton.innerText);
+
+    Array.from(answerButtonElement.children).forEach(button => {
+              if(button.getAttribute("data-number") != selectedButton.getAttribute("data-number")){
+                button.disabled = true;
+                nextButton.style.display="block";
+              }
+          });
+    
+    selectedButton.addEventListener("click", () => {
+        // remove the answer from the local storage
+        console.log("removing " + selectedButton.innerText + " from the local storage");
+        Array.from(answerButtonElement.children).forEach(button => {
+            button.disabled = false;
+            nextButton.style.display="none";
+        });
+    })
+
+    // all we needed to do here was show the button the eventListener is working
+    // we only want the next button to show when all buttons are enabled 
+    //nextButton.style.display="block";
+
+    // now should be when to add the values to the local storage
+    // for some reason though this is not working
+    // each time the next button is clicked it is loading all of the answers picked.
+    console.log("adding " + selectedButton.innerText + " to the local storage");
+
 }
 
 function showScore () {
@@ -194,12 +206,13 @@ function nextQuestion() {
 }
 
 nextButton.addEventListener ("click", ()=> {
-  if (currentQuestionIndex < questions.length+1) {
-      nextQuestion();
-  } else {
-      startQuiz();
-  }
-})
+        
+    if (currentQuestionIndex < questions.length+1) {
+        nextQuestion();
+    } else {
+        startQuiz();
+    }
+  })
 
 startQuiz();
 
