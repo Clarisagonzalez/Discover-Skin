@@ -194,6 +194,10 @@ function selectAnswer (e) {
 
     localStorage.setItem("userResponse", JSON.stringify(userResponse));
     console.log("adding " + selectedButton.innerText + " to the local storage");
+
+    if (!(currentQuestionIndex < questions.length -1)){
+        nextButton.textContent = "Submit Quiz";
+    }
 }
 
 
@@ -212,7 +216,7 @@ function nextQuestion() {
 
 nextButton.addEventListener ("click", ()=> {
         
-    if (currentQuestionIndex < questions.length) {
+    if (currentQuestionIndex < questions.length -1) {
         nextQuestion();
     } else {
         console.log('you have completed the quiz');
