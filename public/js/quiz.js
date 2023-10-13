@@ -170,6 +170,7 @@ function selectAnswer (e) {
     // this can be helpful when we create out local storage key
     console.log(selectedButton.innerText);
 
+    selectedButton.style.background = "#ffcba4";
 
     Array.from(answerButtonElement.children).forEach(button => {
               if(button.getAttribute("data-number") != selectedButton.getAttribute("data-number")){
@@ -182,6 +183,7 @@ function selectAnswer (e) {
         // remove the answer from the local storage
         console.log("removing " + selectedButton.innerText + " from the local storage");
 
+        selectedButton.style.background = "#E75353";
 
         
         var responses = JSON.parse(localStorage.getItem("userResponse"));
