@@ -12,43 +12,43 @@ skincareData.init(
       autoIncrement: true,
     },
     category: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1234),
       allowNull: true,
     },
     lip_concerns: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1234),
       allowNull: true,
     },
     spf_ingredients: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1234),
       allowNull: true,
     },
     skin_concerns: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1234),
       allowNull: true,
     },
     skin_type: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1234),
       allowNull: true,
     },
     ingredients: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1234),
       allowNull: true,
     },
     product_type: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1234),
       allowNull: true,
     },
     description: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1234),
       allowNull: true,
     },
     product_cheap: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1234),
       allowNull: true,
     },
     product_expensive: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1234),
       allowNull: true,
     },
   },
