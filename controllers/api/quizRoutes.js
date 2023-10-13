@@ -20,7 +20,6 @@ router.post('/results', async(req, res) => {
   }
 });
 
-
 // router.post('/results', async (req, res) => {
 //     try {
 //       console.log(req.body);
@@ -39,8 +38,6 @@ router.post('/results', async(req, res) => {
 
 
 //   });
-
-
 
 
   module.exports = router;
