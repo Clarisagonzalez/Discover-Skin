@@ -1,0 +1,27 @@
+:root {
+    --deepPeriwinkle: #9466f2;
+    --hoverPeriwinkle: #8142ff;
+    --focusPeriwinkle: #a476ff;
+    --monetBlue:#98bdcb;
+    --hoverBlue: #6dabc1;
+    --focusBlue: #97cfe3;
+    --icyWhite:#f8f8ff;
+    --princessPink:#dd4f91;
+    --hoverPink: #ab3d70;
+    --focusPink: #e67aac;
+    --duskyGray:#6e6e6e;
+    --crayolaPeach: #ffcba4;
+    --hoverPeach: #fce8d9; 
+    --hotPink: #e75353;
+    --brown: #664524;
+}
+
+* {
+    font-family:  'Montserrat',Arial, Helvetica, sans-serif;
+}
+
+#products-heading {
+    color: #664524; 
+    font-family: 'Montserrat';
+  }
+ 
