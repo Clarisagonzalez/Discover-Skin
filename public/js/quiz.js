@@ -155,15 +155,18 @@ function nextQuestion() {
 // this way it doesnt matter the quantity of answers per question
 
 function selectAnswer (e) {
+   
     var selectedButton = e.target;
     // selectedButton.
     // count++;
     // console.log(count);
 
+
     //we have access to the question number that was chosen via ==> selectedButton.getAttribute("data-number")
     //and we have access to the text of the chosen answer via ==> selectedButton.innerText
     // this can be helpful when we create out local storage key
     console.log(selectedButton.innerText);
+
 
     Array.from(answerButtonElement.children).forEach(button => {
               if(button.getAttribute("data-number") != selectedButton.getAttribute("data-number")){
@@ -171,26 +174,50 @@ function selectAnswer (e) {
                 nextButton.style.display="block";
               }
           });
-    
+   
     selectedButton.addEventListener("click", () => {
         // remove the answer from the local storage
         console.log("removing " + selectedButton.innerText + " from the local storage");
+
+
+        var responses = JSON.parse(localStorage.getItem("userResponse"));
+        // Check if there are responses in local storage
+        if (responses && responses.length > 0) {
+            // Remove the last response
+            responses.pop(); // Remove the last two items from the array because it is getting added again when it was clicked again (check console for more info)
+            responses.pop();
+            // Update local storage with the modified responses
+            localStorage.setItem("userResponse", JSON.stringify(responses));
+        }
+       
         Array.from(answerButtonElement.children).forEach(button => {
             button.disabled = false;
             nextButton.style.display="none";
         });
     })
 
-    // all we needed to do here was show the button the eventListener is working
-    // we only want the next button to show when all buttons are enabled 
-    //nextButton.style.display="block";
 
     // now should be when to add the values to the local storage
     // for some reason though this is not working
     // each time the next button is clicked it is loading all of the answers picked.
+    var userResponse = JSON.parse(localStorage.getItem("userResponse"))||[];
+
+
+    userResponse.push(
+        {
+            questionNumber: currentQuestionIndex + 1,
+            chosenAswer: selectedButton.innerText,
+        }
+    )
+
+
+    localStorage.setItem("userResponse", JSON.stringify(userResponse));
+    userNumber++;
     console.log("adding " + selectedButton.innerText + " to the local storage");
 
+
 }
+
 
 function showScore () {
   scoreElement.innerHTML = "Score: " + score + " /10";
