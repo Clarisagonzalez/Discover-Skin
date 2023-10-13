@@ -22,8 +22,13 @@
     font-family:  'Montserrat',Arial, Helvetica, sans-serif;
     box-sizing: border-box;
 }
+.flex-container {
+    margin: 20px;
+}
 
-
+.w-72 {
+    width: 10rem;
+}
 .quiz-container {
     background: var(--icyWhite);
     width: 90%;
@@ -46,17 +51,6 @@
 
 }
 
-/*.score {
-    font-weight: 300;
-    color: var(--hoverBlue);
-
-}*/
-
-/*.time {
-    font-weight: 300;
-    color: var(--hoverBlue);
-}*/
-
 .quiz {
     padding: 20px 0;
 }
@@ -68,10 +62,6 @@
     padding-bottom: 2%;
     text-align: center;
 }
-
-/*.score {
-    display: inline-block;
-}*/
 
 .button {
     background: var(--hotPink);
@@ -122,32 +112,6 @@
 #next-button:active {
     background-color: var(--focusPink);
     color: white;
-}
-
-/*.correct {
-    background: green;
-}
-
-/*.correct1 {
-    background: green;
-}*/
-
-/*.incorrect {
-    background:--icyWhite #f8f8ff;
-}
-
-.correct::after {
-    content: "correct!";
-    position: absolute;
-    left: 65%;
-    font-style: italic;
-}
-
-/*.incorrect::after {
-    content: "incorrect! 10s deducted";
-    position: absolute;
-    left: 55%;
-    font-style: italic;
 }
 
 /* main {
