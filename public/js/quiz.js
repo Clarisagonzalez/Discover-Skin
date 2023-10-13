@@ -85,10 +85,12 @@ var currentQuestionIndex = 0;
 var score = 0;
 
 function startQuiz () {
-  currentQuestionIndex = 0;
-  score = 0;
-  nextButton.innerHTML = "Next";
-  showQuestion();
+    if (localStorage.getItem('userResponse') != null)
+    localStorage.removeItem('userResponse');
+    currentQuestionIndex = 0;
+    score = 0;
+    nextButton.innerHTML = "Next";
+    showQuestion();
 }
 
 // function showHeadline () {
@@ -180,16 +182,20 @@ function selectAnswer (e) {
         console.log("removing " + selectedButton.innerText + " from the local storage");
 
 
+        
         var responses = JSON.parse(localStorage.getItem("userResponse"));
-        // Check if there are responses in local storage
-        if (responses && responses.length > 0) {
-            // Remove the last response
-            responses.pop(); // Remove the last two items from the array because it is getting added again when it was clicked again (check console for more info)
-            responses.pop();
-            // Update local storage with the modified responses
-            localStorage.setItem("userResponse", JSON.stringify(responses));
+        console.log(responses.length -1);
+        console.log(currentQuestionIndex);
+        if(responses.length -1 > currentQuestionIndex){
+            // Check if there are responses in local storage
+            if (responses && responses.length > 0) {
+                // Remove the last response
+                responses.pop(); // Remove the last two items from the array because it is getting added again when it was clicked again (check console for more info)
+                responses.pop();
+                // Update local storage with the modified responses
+                localStorage.setItem("userResponse", JSON.stringify(responses));
+            }
         }
-       
         Array.from(answerButtonElement.children).forEach(button => {
             button.disabled = false;
             nextButton.style.display="none";
