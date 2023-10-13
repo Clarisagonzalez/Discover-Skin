@@ -1,1 +1,376 @@
-<h3> HELLO WELCOME TO THE PRODUCTS PAGE</h3>
+<!-- Tailwind Elements styles-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700,900&display=swap" rel="google-fonts" />
+    <!-- Tailwind Elements Link-->
+    <link rel="tailwind" href="https://cdn.jsdelivr.net/npm/tw-elements/dist/css/tw-elements.min.css" />
+    {{!-- Flowbite CDN Link --}}
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.8.1/flowbite.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="/css/product.css">
+
+<div class="container mx-auto p-8"></div>
+<h3 class="text-3xl font-bold mb-8 montserrat-font" style="color: #664524;">ALL PRODUCTS</h3>
+
+<div class="relative overflow-x-auto shadow-md sm:rounded-lg @apply montserrat-font">
+    <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
+        <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
+            <tr>
+                <th scope="col" class="px-6 py-3">
+                    <span class="sr-only">Image</span>
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Product
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Qty
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Price
+                </th>
+                <th scope="col" class="px-6 py-3">
+                    Action
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-32 p-4">
+                    <img src="https://qvc.scene7.com/is/image/QVC/a/83/a384483.001?$aempdlarge$" alt="Tatcha Cleanser">
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    Tatcha The Rice Wash Skin-Softening Cleanser
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center space-x-3">
+                        <button class="inline-flex items-center justify-center p-1 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                            </svg>
+                        </button>
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                        <button class="inline-flex items-center justify-center h-6 w-6 p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    $40
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-32 p-4">
+                    <img src="data:image/jpeg;base64,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" alt="Drunk Elephant Cleanser">
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    Drunk Elephant Slaai Makeup-Melting Butter Cleanser
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center space-x-3">
+                        <button class="inline-flex items-center justify-center p-1 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                            </svg>
+                        </button>
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                        <button class="inline-flex items-center justify-center h-6 w-6 p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    $36
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-32 p-4">
+                    <img src="data:image/jpeg;base64,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" alt="Retinol">
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    Good Molecules 1% Retinol 
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center space-x-3">
+                        <button class="inline-flex items-center justify-center p-1 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                            </svg>
+                        </button>
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                        <button class="inline-flex items-center justify-center h-6 w-6 p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    $12
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-32 p-4">
+                    <img src="https://www.paulaschoice.com/dw/image/v2/BBNX_PRD/on/demandware.static/-/Sites-pc-catalog/default/dwb8a94748/images/products/2-percent-bha-liquid-exfoliant-2010-L.png?sw=2000&sfrm=png" alt="Apple Watch">
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    Paula's Choice 2% BHA Liquid Exfoliant Toner 
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center space-x-3">
+                        <button class="inline-flex items-center justify-center p-1 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                            </svg>
+                        </button>
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                        <button class="inline-flex items-center justify-center h-6 w-6 p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    $35
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-32 p-4">
+                    <img src="https://supergoop.com/_cdn/A5I9PbaFjQo69uIottl6Hz/output=format:webp/cache=expiry:max/resize=width:720%2cfit:max/quality=value:75/__N__1/https%3A/cdn.shopify.com/s/files/1/1503/5658/products/supergoop-glowscreen-spf-40-50ml_187eb38d-3b5c-42c0-9300-31063ba6c23b.jpg?v=1652977649" alt="Apple Watch">
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    Super Goop! Glow Screen SPF 40 
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center space-x-3">
+                        <button class="inline-flex items-center justify-center p-1 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                            </svg>
+                        </button>
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                        <button class="inline-flex items-center justify-center h-6 w-6 p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    $38
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-32 p-4">
+                    <img src="data:image/jpeg;base64,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" alt="Apple Watch">
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    Laneige Lip Sleeping Mask 
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center space-x-3">
+                        <button class="inline-flex items-center justify-center p-1 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                            </svg>
+                        </button>
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                        <button class="inline-flex items-center justify-center h-6 w-6 p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    $24
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-32 p-4">
+                    <img src="data:image/jpeg;base64,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" alt="Apple Watch">
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    Good Molecules Hylaronic Acid Serum 
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center space-x-3">
+                        <button class="inline-flex items-center justify-center p-1 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                            </svg>
+                        </button>
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                        <button class="inline-flex items-center justify-center h-6 w-6 p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    $6
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-32 p-4">
+                    <img src="data:image/jpeg;base64,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" alt="Apple Watch">
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    OleHenrikson Banana Bright Vitamin C Serum 
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center space-x-3">
+                        <button class="inline-flex items-center justify-center p-1 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                            </svg>
+                        </button>
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                        <button class="inline-flex items-center justify-center h-6 w-6 p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    $71
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-32 p-4">
+                    <img src="data:image/jpeg;base64,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" alt="Apple Imac">
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    COSRX Advanced Snail 92 All in one cream 
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center space-x-3">
+                        <button class="inline-flex items-center justify-center p-1 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                            </svg>
+                        </button>
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                        <button class="inline-flex items-center justify-center h-6 w-6 p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    $28
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+            </tr>
+            <tr class="bg-white border-b dark:bg-gray-800 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-600">
+                <td class="w-32 p-4">
+                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRTFR_SOlDmyvrujQ_jihq8D5h9bM3XtfLoXQ&usqp=CAU" alt="Iphone 12">
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    Glow Recipe Guava Vitamin C Bright Eye-Gel Cream 
+                </td>
+                <td class="px-6 py-4">
+                    <div class="flex items-center space-x-3">
+                        <button class="inline-flex items-center justify-center p-1 text-sm font-medium h-6 w-6 text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 2">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 1h16"/>
+                            </svg>
+                        </button>
+                        <div>
+                            <input type="number" id="first_product" class="bg-gray-50 w-14 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block px-2.5 py-1 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="1" required>
+                        </div>
+                        <button class="inline-flex items-center justify-center h-6 w-6 p-1 text-sm font-medium text-gray-500 bg-white border border-gray-300 rounded-full focus:outline-none hover:bg-gray-100 focus:ring-4 focus:ring-gray-200 dark:bg-gray-800 dark:text-gray-400 dark:border-gray-600 dark:hover:bg-gray-700 dark:hover:border-gray-600 dark:focus:ring-gray-700" type="button">
+                            <span class="sr-only">Quantity button</span>
+                            <svg class="w-3 h-3" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 1v16M1 9h16"/>
+                            </svg>
+                        </button>
+                    </div>
+                </td>
+                <td class="px-6 py-4 font-semibold text-gray-900 dark:text-white">
+                    $38
+                </td>
+                <td class="px-6 py-4">
+                    <a href="#" class="font-medium text-red-600 dark:text-red-500 hover:underline">Remove</a>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+</div>
+
+
+
+        
+
