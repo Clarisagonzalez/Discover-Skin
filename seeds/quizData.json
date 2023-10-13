@@ -1,20 +1,29 @@
 [
     {
-        "date": "2012-04-23",
-        "question": "what is your skin type?",
-        "response": "dry",
-        "user":"cliniquelover34"
+        "id": "00129032",
+        "skin_type": "oily",
+        "eye_concerns": "undereye bags and/or inflammation",
+        "serum_choice": "hydration",
+        "toner_choice":"anti-aging",
+        "spf_ingredient": "combination",
+        "lip_concerns": "dullness"
     },
     {
-        "date": "2023-01-13",
-        "question": "what are your skin concerns?",
-        "response": "hyperpigmentation",
-        "user":"skincaregirly"
+        "id": "00129032",
+        "skin_type": "oily",
+        "eye_concerns": "undereye bags and/or inflammation",
+        "serum_choice": "hydration",
+        "toner_choice":"anti-aging",
+        "spf_ingredient": "combination",
+        "lip_concerns": "dullness"
     },
     {
-        "date": "2022-12-31",
-        "question": "Daytime or nighttime routine?",
-        "response": "daytime",
-        "user":"mikemomo"
+        "id": "00129032",
+        "skin_type": "oily",
+        "eye_concerns": "undereye bags and/or inflammation",
+        "serum_choice": "hydration",
+        "toner_choice":"anti-aging",
+        "spf_ingredient": "combination",
+        "lip_concerns": "dullness"
     }
   ]
