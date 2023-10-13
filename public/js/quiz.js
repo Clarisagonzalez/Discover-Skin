@@ -194,6 +194,10 @@ function selectAnswer (e) {
 
     localStorage.setItem("userResponse", JSON.stringify(userResponse));
     console.log("adding " + selectedButton.innerText + " to the local storage");
+
+    if (!(currentQuestionIndex < questions.length -1)){
+        nextButton.textContent = "Submit Quiz";
+    }
 }
 
 
@@ -212,20 +216,22 @@ function nextQuestion() {
 
 nextButton.addEventListener ("click", ()=> {
         
-    if (currentQuestionIndex < questions.length+1) {
+    if (currentQuestionIndex < questions.length -1) {
         nextQuestion();
     } else {
         console.log('you have completed the quiz');
         // we don't want to start the quiz again 
         // display results
-        startQuiz();
+        console.log("submit clicked");
+        fetchResponse();
+        // startQuiz();
     }
   })
 
 startQuiz();
 
 const fetchResponse = async() => {
-    var submitButton = document.getElementById("submit-button");
+    
 
     // step 1: collect values
     var responses = JSON.parse(localStorage.getItem("userResponse"));
@@ -251,9 +257,7 @@ const fetchResponse = async() => {
     });
 
     // Listen for when the form is submitted
-    submitButton.addEventListener('submit', (e) => {
-        e.preventDefault();
-        console.log("submit clicked");
+    
     // Create a new results object from the input values
     const quizResult = {
         skin_type: responses[0].chosenAnswer,
@@ -268,7 +272,7 @@ const fetchResponse = async() => {
     postResponse(quizResult)
     .then((data) => console.log(`Responses submitted!`+data))
     .catch((err) => console.error(err));
-});
+
 };
 
 
