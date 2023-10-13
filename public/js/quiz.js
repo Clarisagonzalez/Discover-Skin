@@ -230,21 +230,31 @@ nextButton.addEventListener ("click", ()=> {
 
 startQuiz();
 
-const fetchResponse = async() => {
+function fetchResponse()  {
     
-
     // step 1: collect values
     var responses = JSON.parse(localStorage.getItem("userResponse"));
     console.log(responses);
 
+    // Create a new results object from the input values
+    const quizResult = {
+        skin_type: responses[0].chosenAnswer,
+        eye_concerns: responses[1].chosenAnswer,
+        serum_choice: responses[2].chosenAnswer,
+        toner_choice: responses[3].chosenAnswer,
+        spf_ingredient: responses[4].chosenAnswer,
+        lip_concerns: responses[5].chosenAnswer,
+    };
+    
     // step 2: post value
-    const postResponse = (responses) =>
+    console.log(quizResult);
+    const postResponse = (quizResult) =>
     fetch('/api/quiz/results', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(responses)
+        body: JSON.stringify(quizResult)
     })
     .then((res) => res.json())
     .then((data) => {
@@ -256,22 +266,13 @@ const fetchResponse = async() => {
         console.error('Error in POST request');
     });
 
-    // Listen for when the form is submitted
-    
-    // Create a new results object from the input values
-    const quizResult = {
-        skin_type: responses[0].chosenAnswer,
-        eye_concerns: responses[1].chosenAnswer,
-        serum_choice: responses[2].chosenAnswer,
-        toner_choice: responses[3].chosenAnswer,
-        spf_ingredient: responses[4].chosenAnswer,
-        lip_concerns: responses[5].chosenAnswer,
-    };
-    
     // Call our postReview method to make a POST request with our `newReview` object.
     postResponse(quizResult)
     .then((data) => console.log(`Responses submitted!`+data))
     .catch((err) => console.error(err));
+
+    //now we redirect the user to the results page 
+    window.location.replace("/api/quiz/results");
 
 };
 

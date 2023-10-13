@@ -38,7 +38,7 @@ quizData.init(
 
     },
     spf_ingredient: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1234),
       defaultValue: "combination",
       allowNull: true,
     },
