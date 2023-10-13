@@ -80,24 +80,21 @@ var headlineElement = document.getElementById("headline");
 var questionElement = document.getElementById("question");
 var answerButtonElement = document.getElementById("answer-buttons");
 var nextButton = document.getElementById("next-button");
+
 var scoreElement = document.getElementsByClassName("score");
 var currentQuestionIndex = 0;
 var score = 0;
 
 function startQuiz () {
+    // resets local storage content when restarting quiz
     if (localStorage.getItem('userResponse') != null)
     localStorage.removeItem('userResponse');
+
     currentQuestionIndex = 0;
     score = 0;
     nextButton.innerHTML = "Next";
     showQuestion();
 }
-
-// function showHeadline () {
-//   resetState();
-//   var currentQuestion = questions[currentQuestionIndex];
-
-// };
 
 function showQuestion () {
   resetState();
@@ -130,11 +127,6 @@ function resetState () {
 }
 }
 
-// function showScore () {
-//   scoreElement.innerHTML = `score + " /10"`;
-
-// }
-
 function nextQuestion() {
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
@@ -144,29 +136,14 @@ function nextQuestion() {
   }
 }
 
-// odds disable all other buttons
-// evens re-enable all other buttons
-// selected button is not affected by this conditional
-
-// var count = 0;
-
-
 // custom data attribute for each button 
 // use loop to iterate through buttons
 // if data-attr is not 1 (or selected button), disable it 
 // this way it doesnt matter the quantity of answers per question
 
 function selectAnswer (e) {
-   
     var selectedButton = e.target;
-    // selectedButton.
-    // count++;
-    // console.log(count);
 
-
-    //we have access to the question number that was chosen via ==> selectedButton.getAttribute("data-number")
-    //and we have access to the text of the chosen answer via ==> selectedButton.innerText
-    // this can be helpful when we create out local storage key
     console.log(selectedButton.innerText);
 
 
@@ -204,24 +181,18 @@ function selectAnswer (e) {
 
 
     // now should be when to add the values to the local storage
-    // for some reason though this is not working
-    // each time the next button is clicked it is loading all of the answers picked.
     var userResponse = JSON.parse(localStorage.getItem("userResponse"))||[];
 
 
     userResponse.push(
         {
             questionNumber: currentQuestionIndex + 1,
-            chosenAswer: selectedButton.innerText,
+            chosenAnswer: selectedButton.innerText,
         }
     )
 
-
     localStorage.setItem("userResponse", JSON.stringify(userResponse));
-    userNumber++;
     console.log("adding " + selectedButton.innerText + " to the local storage");
-
-
 }
 
 
@@ -249,198 +220,81 @@ nextButton.addEventListener ("click", ()=> {
 
 startQuiz();
 
+const fetchResponse = async() => {
+    var submitButton = document.getElementById("submit-button");
+
+    // step 1: collect values
+    var responses = JSON.parse(localStorage.getItem("userResponse"));
+    console.log(responses);
+
+    // step 2: post value
+    const postResponse = (responses) =>
+    fetch('/api/quiz/results', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(responses)
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log('Successful POST request:', data);
+        return data;
+    })
+    .catch((error) => {
+        console.log(error);
+        console.error('Error in POST request');
+    });
+
+    // Listen for when the form is submitted
+    submitButton.addEventListener('submit', (e) => {
+        e.preventDefault();
+        console.log("submit clicked");
+    // Create a new results object from the input values
+    const quizResult = {
+        skin_type: responses[0].chosenAnswer,
+        eye_concerns: responses[1].chosenAnswer,
+        serum_choice: responses[2].chosenAnswer,
+        toner_choice: responses[3].chosenAnswer,
+        spf_ingredient: responses[4].chosenAnswer,
+        lip_concerns: responses[5].chosenAnswer,
+    };
+    
+    // Call our postReview method to make a POST request with our `newReview` object.
+    postResponse(quizResult)
+    .then((data) => console.log(`Responses submitted!`+data))
+    .catch((err) => console.error(err));
+});
+};
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-// const quizHandler = async (event) => {
-//     event.preventDefault();
 
 
 // // Collect values from the quiz
 //   const skintype = document.querySelector('#skintype').value.trim();
 //   const skinconcerns = document.querySelector('#concerns').value.trim();
 //   const ingredients = document.querySelector ('#ingredients').value.trim();
-
-
 //   // if (skintype && skinconcerns && ingredients) {
 //     // Send a POST request to the API endpoint
 //     const response = await fetch('/api/quiz/results', {
 //       method: 'POST',
 //       body: JSON.stringify({ skintype, skinconcerns, ingredients }),
 //       headers: { 'Content-Type': 'application/json' },
-
-
 //     });
-
-
 //     console.log(JSON.stringify({ skintype, skinconcerns, ingredients }))
-
 
 //     if (response.ok) {
 //       console.log(document.querySelector('#submitquizbtn'));
 //       document.location.replace('/results');
 //     }
        
-//     }
- 
-// document
-// .querySelector('#submitquizbtn')
-// .addEventListener('click', quizHandler);
 
 
-//     //   document
 
 
-//     // .querySelector('#submitquizbtn')
-//     // .addEventListener('click', quizHandler);
 
 
-   
 
 
-//     // if (skinType === 'oily') {
-//     //   recommendedProducts = ['cleanser:foaming cleanser'];
-//     // } else if (skinType === 'dry') {
-//     //   recommendedProducts = ['cream cleanser'];
-//     // } else if (skinType === 'combination') {
-//     //   recommendedProducts = ['hybrid lotion'];
-//     // }
 
 
-// // console.log(results);
-
-
-// // let resultsDiv = document.getElementById('results');
-
-
-// // resultsDiv.appendChild(recommendedProducts);
-//     //   // If successful, redirect the browser to the profile page
-
-
-
-
-
-
-
-
-// //   console.log(document.querySelector('#submitquizbtn'));
-
-
-// //   if (skinType === 'oily') {
-// //     recommendedProducts = ['cleanser:foaming cleanser'];
-// //   } else if (skinType === 'dry') {
-// //     recommendedProducts = ['cream cleanser'];
-// //   } else if (skinType === 'combination') {
-// //     recommendedProducts = ['hybrid lotion'];
-// //   }
-// // console.log(results);
-
-
-// // let resultsDiv = document.getElementById('results');
-
-
-// // resultsDiv.appendChild(recommendedProducts);
-
-
-
-
-
-// const quizHandler = async (event) => {
-//     event.preventDefault();
-
-
-// // Collect values from the quiz
-//   const skintype = document.querySelector('#skintype').value.trim();
-//   const skinconcerns = document.querySelector('#concerns').value.trim();
-//   const ingredients = document.querySelector ('#ingredients').value.trim();
-
-
-//   // if (skintype && skinconcerns && ingredients) {
-//     // Send a POST request to the API endpoint
-//     const response = await fetch('/api/quiz/results', {
-//       method: 'POST',
-//       body: JSON.stringify({ skintype, skinconcerns, ingredients }),
-//       headers: { 'Content-Type': 'application/json' },
-
-
-//     });
-
-
-//     console.log(JSON.stringify({ skintype, skinconcerns, ingredients }))
-
-
-//     if (response.ok) {
-//       console.log(document.querySelector('#submitquizbtn'));
-//       document.location.replace('/results');
-//     }
-       
-//     }
- 
-// document
-// .querySelector('#submitquizbtn')
-// .addEventListener('click', quizHandler);
-
-
-//     //   document
-
-
-//     // .querySelector('#submitquizbtn')
-//     // .addEventListener('click', quizHandler);
-
-
-   
-
-
-//     // if (skinType === 'oily') {
-//     //   recommendedProducts = ['cleanser:foaming cleanser'];
-//     // } else if (skinType === 'dry') {
-//     //   recommendedProducts = ['cream cleanser'];
-//     // } else if (skinType === 'combination') {
-//     //   recommendedProducts = ['hybrid lotion'];
-//     // }
-
-
-// // console.log(results);
-
-
-// // let resultsDiv = document.getElementById('results');
-
-
-// // resultsDiv.appendChild(recommendedProducts);
-//     //   // If successful, redirect the browser to the profile page
-
-
-
-
-
-
-
-
-// //   console.log(document.querySelector('#submitquizbtn'));
-
-
-// //   if (skinType === 'oily') {
-// //     recommendedProducts = ['cleanser:foaming cleanser'];
-// //   } else if (skinType === 'dry') {
-// //     recommendedProducts = ['cream cleanser'];
-// //   } else if (skinType === 'combination') {
-// //     recommendedProducts = ['hybrid lotion'];
-// //   }
-// // console.log(results);
-
-
-// // let resultsDiv = document.getElementById('results');
-
-
-// // resultsDiv.appendChild(recommendedProducts);
