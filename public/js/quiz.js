@@ -141,11 +141,12 @@ function nextQuestion() {
 // if data-attr is not 1 (or selected button), disable it 
 // this way it doesnt matter the quantity of answers per question
 
+var userNumber= 0;
 function selectAnswer (e) {
     var selectedButton = e.target;
 
     console.log(selectedButton.innerText);
-
+    selectedButton.style.background = "#FFCBA4";
 
     Array.from(answerButtonElement.children).forEach(button => {
               if(button.getAttribute("data-number") != selectedButton.getAttribute("data-number")){
@@ -158,7 +159,7 @@ function selectAnswer (e) {
         // remove the answer from the local storage
         console.log("removing " + selectedButton.innerText + " from the local storage");
 
-
+        selectedButton.style.background = "#E75353";
         
         var responses = JSON.parse(localStorage.getItem("userResponse"));
         console.log(responses.length -1);
@@ -214,6 +215,9 @@ nextButton.addEventListener ("click", ()=> {
     if (currentQuestionIndex < questions.length+1) {
         nextQuestion();
     } else {
+        console.log('you have completed the quiz');
+        // we don't want to start the quiz again 
+        // display results
         startQuiz();
     }
   })
