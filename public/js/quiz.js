@@ -203,6 +203,9 @@ nextButton.addEventListener ("click", ()=> {
   })
 startQuiz();
 
+// container to store quiz results
+var allContentContainer = document.createElement("div");
+
 function fetchResponse()  {
     
     // step 1: collect values
@@ -231,13 +234,12 @@ function fetchResponse()  {
     .then((results) => { 
         console.log('Successful Q1 API POST request:', results);
 
-    // **************** APPENDING RESULTS ***************** //
+    // ************* APPENDING RESULTS ***************** //
     quiz.style.display = "none";
     let content = "";
 
     // MAKEUP REMOVER RESULTS
     content += `<center><b>✨ Skincare Quiz Results ✨</b></center>`
-
     content += `<br><center>Makeup Remover</center>
     <b>Selected Skin Type:</b> ${results[2].skin_type} 
     <br><b>Recommended Product Type:</b> ${results[2].product_type} makeup remover 
@@ -267,56 +269,11 @@ function fetchResponse()  {
     <br> ✨ ${results[0].product_expensive}
     <br>`
 
-    // EYE CREAM RESULTS
-    content += `<br><center>Eye Cream</center>
-    <b>Selected Eye Area Concerns:</b> ${results[0].skin_type} 
-    <br><b>Recommended Product Type:</b> ${results[0].product_type}
-    <br><b>Description:</b> ${results[0].description}
-    <br><b>Custom Product Recommendations</b>
-    <br> ✨ ${results[0].product_cheap}
-    <br> ✨ ${results[0].product_expensive}
-    <br>`
+    // Append Q1 content to the allContentContainer
+    allContentContainer.innerHTML += content;
 
-    // SERUM RESULTS
-    content += `<br><center>Serum</center>
-    <b>Selected Skin Goal:</b> ${results[0].skin_concerns} 
-    <br><b>Recommended Product Type:</b> ${results[0].product_type}
-    <br><b>Recommended Product Ingredients:</b> ${results[0].ingredients}
-    <br><b>Description:</b> ${results[0].description}
-    <br><b>Custom Product Recommendations</b>
-    <br> ✨ ${results[0].product_cheap}
-    <br> ✨ ${results[0].product_expensive}
-    <br>`
-
-    // TONER RESULTS
-    content += `<br><center>Toner</center>
-    <b>Selected Skin Goal:</b> ${results[0].skin_concerns} 
-    <br><b>Recommended Ingredients:</b> ${results[0].ingredients}
-    <br><b>Description:</b> ${results[0].description}
-    <br><b>Custom Product Recommendations</b>
-    <br> ✨ ${results[0].product_cheap}
-    <br> ✨ ${results[0].product_expensive}
-    <br>`
-
-    // SPF RESULTS
-    content += `<br><center>SPF</center>
-    <b>Your preference:</b> ${results[0].description}
-    <br><b>Custom Product Recommendations</b>
-    <br> ✨ ${results[0].product_cheap}
-    <br> ✨ ${results[0].product_expensive}
-    <br>`
-
-    // LIP MOISTURIZER RESULTS
-    content += `<br><center>Lip Moisturizer</center>
-    <b>Selected Lip Concerns:</b> ${results[0].lip_concerns} 
-    <br><b>Recommended Ingredients:</b> ${results[0].ingredients}
-    <br><b>Description:</b> ${results[0].description}
-    <br><b>Custom Product Recommendations</b>
-    <br> ✨ ${results[0].product_cheap}
-    <br> ✨ ${results[0].product_expensive}`
-
-    // Set the content in the quizContainer
-    quizContainer.innerHTML = content;
+    // // Set the content in the quizContainer
+    // quizContainer.innerHTML = content;
 
     })
     .catch((error) => {
@@ -335,6 +292,20 @@ function fetchResponse()  {
     .then((res) => res.json())
     .then((results) => { 
         console.log('Successful Q2 API POST request:', results);
+        // EYE CREAM RESULTS
+        let content = "";
+    
+        content += `<br><center>Eye Cream</center>
+        <b>Selected Eye Area Concerns:</b> ${results[0].skin_type} 
+        <br><b>Recommended Product Type:</b> ${results[0].product_type}
+        <br><b>Description:</b> ${results[0].description}
+        <br><b>Custom Product Recommendations</b>
+        <br> ✨ ${results[0].product_cheap}
+        <br> ✨ ${results[0].product_expensive}
+        <br>`
+    // Append Q2 content to the allContentContainer
+    allContentContainer.innerHTML += content;
+        // quizContainer.innerHTML = content;
     })
     .catch((error) => {
         console.log(error);
@@ -352,6 +323,22 @@ function fetchResponse()  {
     .then((res) => res.json())
     .then((results) => { 
         console.log('Successful Q3 API POST request:', results);
+
+        // SERUM RESULTS
+        let content = "";
+
+        content += `<br><center>Serum</center>
+        <b>Selected Skin Goal:</b> ${results[0].skin_concerns} 
+        <br><b>Recommended Product Type:</b> ${results[0].product_type}
+        <br><b>Recommended Product Ingredients:</b> ${results[0].ingredients}
+        <br><b>Description:</b> ${results[0].description}
+        <br><b>Custom Product Recommendations</b>
+        <br> ✨ ${results[0].product_cheap}
+        <br> ✨ ${results[0].product_expensive}
+        <br>`
+    // Append Q3 content to the allContentContainer
+    allContentContainer.innerHTML += content;
+        // quizContainer.innerHTML = content;
     })
     .catch((error) => {
         console.log(error);
@@ -369,6 +356,19 @@ function fetchResponse()  {
     .then((res) => res.json())
     .then((results) => {
         console.log('Successful Q4 API POST request:', results);
+        // TONER RESULTS
+        let content = "";
+        content += `<br><center>Toner</center>
+        <b>Selected Skin Goal:</b> ${results[0].skin_concerns} 
+        <br><b>Recommended Ingredients:</b> ${results[0].ingredients}
+        <br><b>Description:</b> ${results[0].description}
+        <br><b>Custom Product Recommendations</b>
+        <br> ✨ ${results[0].product_cheap}
+        <br> ✨ ${results[0].product_expensive}
+        <br>`
+    // Append Q4 content to the allContentContainer
+    allContentContainer.innerHTML += content;
+        // quizContainer.innerHTML = content;
     })
     .catch((error) => {
         console.log(error);
@@ -386,6 +386,20 @@ function fetchResponse()  {
     .then((res) => res.json())
     .then((results) => {
         console.log('Successful Q5 API POST request:', results);
+        // SPF RESULTS
+
+        let content = "";
+
+        content += `<br><center>SPF</center>
+        <b>Your preference:</b> ${results[0].description}
+        <br><b>Custom Product Recommendations</b>
+        <br> ✨ ${results[0].product_cheap}
+        <br> ✨ ${results[0].product_expensive}
+        <br>`
+
+    // Append Q4 content to the allContentContainer
+    allContentContainer.innerHTML += content;
+        // quizContainer.innerHTML = content;
     })
     .catch((error) => {
         console.log(error);
@@ -403,11 +417,29 @@ function fetchResponse()  {
     .then((res) => res.json())
     .then((results) => {
         console.log('Successful Q6 API POST request:', results);
+
+        // LIP MOISTURIZER RESULTS
+        let content = "";
+        
+        content += `<br><center>Lip Moisturizer</center>
+        <b>Selected Lip Concerns:</b> ${results[0].lip_concerns} 
+        <br><b>Recommended Ingredients:</b> ${results[0].ingredients}
+        <br><b>Description:</b> ${results[0].description}
+        <br><b>Custom Product Recommendations</b>
+        <br> ✨ ${results[0].product_cheap}
+        <br> ✨ ${results[0].product_expensive}
+        <br>`
+    
+    // Append Q4 content to the allContentContainer
+    allContentContainer.innerHTML += content;
+    // quizContainer.innerHTML = content;
     })
     .catch((error) => {
         console.log(error);
         console.error('Error in Q6 POST request');
     });
+
+    quizContainer.appendChild(allContentContainer);
     
 };
 
