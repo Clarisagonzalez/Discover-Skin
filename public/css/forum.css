@@ -60,3 +60,29 @@ input {
     top: 100px;
 }
 
+/*----------------------------- MEDIA QUERIES----------------------- */
+@media screen and (max-width: 768px) {
+    nav {
+        margin-left: 0px;
+        padding-bottom: 20px;
+        padding-left: 13px;
+        padding-top: 19px;
+    }
+    .forumTab1 {
+        top: 170px;
+        left: 15px;
+    }
+    .skincareresults {
+        display: block;
+        margin: auto;
+    }
+
+    .forumTab2 {
+        left: 20px;
+        top: 210px;
+    }
+}
+    
+    
+
+

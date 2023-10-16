@@ -97,3 +97,20 @@ h4 {
 }
 
 
+/*----------------------------- MEDIA QUERIES----------------------- */
+@media screen and (max-width: 768px) {
+    .leftgraphic {
+        display: none;
+    }
+    .rightgraphic {
+        display: none;
+    }
+    .tab1 {
+        top: 35px;
+    }
+    .tab2content {
+        left: -365px;
+        top: 375px;
+    }
+}
+
