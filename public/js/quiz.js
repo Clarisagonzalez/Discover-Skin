@@ -258,6 +258,23 @@ function fetchResponse()  {
 
     quiz.style.display = "none";
     
+    fetch('/api/result/', {
+        method: 'POST', // Use POST method to send data in the request body
+        headers: {
+            'Content-Type': 'application/json', // Specify that you're sending JSON data
+        },
+        body: JSON.stringify(quizResult), 
+    })
+    .then((res) => res.json())
+    .then((data) => {
+        console.log('Successful:', data);
+        return data;
+    })
+    .catch((error) => {
+        console.log(error);
+        console.error('Error ');
+    });
+
     // quiz.textContent = "hello he wassup";
 };
 
