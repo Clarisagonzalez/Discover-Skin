@@ -118,3 +118,17 @@
     background-color: var(--pink);
     color: white;
 }
+
+/*----------------------------- MEDIA QUERIES----------------------- */
+@media screen and (max-width: 768px) {
+    nav ul li {
+        margin-left: 0px;
+        padding-bottom: 20px;
+        padding-left: 13px;
+        padding-top: 19px;
+    }
+    .quiz-container {
+        max-width: 90%;
+        margin-top: 75px;
+    }
+}
