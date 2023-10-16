@@ -7,13 +7,16 @@ router.get('/results', (req, res) => {
   quizData.findAll()
   .then(Data => {
     if(!Data) {
-      res.status(404).json({message: 'No quizes found in the database'});
+      res.status(404).json({message: 'No quizzes found in the database'});
       return;
     }
-    res.json(Data);
+    // Render your Handlebars template with the data and send it to the client.
+    res.render('results');
+
+    // res.json(Data);
   })
   .catch(err => {
-    console.log("something went wrong");
+    console.log("Something went wrong");
     res.status(500).json(err)
   });
 });
@@ -28,7 +31,9 @@ router.post('/results', async (req, res) => {
       req.session.save(() => {
         req.session.user_id = quizresponse.id;
  
-        res.status(200).json(quizresponse);
+        // res.status(200).json(quizresponse);
+
+        res.render('results');
       });
     } catch (err) {
       res.status(400).json(err);

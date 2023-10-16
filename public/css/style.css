@@ -50,15 +50,14 @@ font-family: 'Montserrat', sans-serif; */
     list-style: none;
     margin-left: 70px;
     background-color: #FDF9F5;
-    border-bottom-left-radius: 50%;
-    border-bottom-right-radius: 50%;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
   }
   
   nav ul li a {
     font-family: 'Montserrat', sans-serif;
     text-decoration: overline;
-    text-decoration-color: #664524;
-    color: #CB5F2B; 
+    text-decoration-color: #FF6BA8;
   }
   
   .nav2 {
@@ -68,34 +67,35 @@ font-family: 'Montserrat', sans-serif; */
   }
   
   .nav1 {
-    box-shadow: inset 0 0 0 0 #CB5F2B;
+    box-shadow: inset 2 1 1 0 #FF6BA8;
     color: #664524;
     margin: 0 -.25rem;
     padding: 0 .5rem;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    border-radius: 5px;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    border-radius: 20px;
     transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
   }
   
   .nav1:hover {
-    box-shadow: inset 100px 0 0 0 #664524;
+    box-shadow: inset 100px 0 0 0 #E75353;
     color: #FDF9F5;
+    text-decoration: none;
   }
   
   .nav2a {
-    box-shadow: inset 0 0 0 0 #664524;
+    box-shadow: inset 0 0 0 0 #FF6BA8;
     color: #FDF9F5;
     margin: 0 -.25rem;
     padding: 0 .5rem;
-    padding-top: 1px;
-    padding-bottom: 1px;
-    border-radius: 5px;
+    padding-top: 3px;
+    padding-bottom: 5px;
+    border-radius: 20px;
     transition: color .3s ease-in-out, box-shadow .3s ease-in-out;
   }
   
   .nav2a:hover {
-    box-shadow: inset 100px 0 0 0 #664524;
+    box-shadow: inset 100px 0 0 0 #FF6BA8;
     color: #FDF9F5;
   }
   
@@ -105,13 +105,17 @@ font-family: 'Montserrat', sans-serif; */
   
   .no-button {
     justify-content: center;
+    align-items: center;
     width: 100%;
     height: 130%;
     position: relative;
     bottom: 10px;
     font-family:'Montserrat', sans-serif;
-    background-color: #664524;
-    border-color: #664524;
+    background-color: #FF6BA8;
+    border-color: #FF6BA8;
+    padding-top: 3px;
+    padding-bottom: 6px;
+    border-radius: 20px;
     cursor: pointer;
     font-size: smaller;
     color: #FDF9F5;

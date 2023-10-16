@@ -22,7 +22,7 @@ router.get('/forum', (req, res) => {
   res.render('forum');
 });
 
-// logo image is connected to this. - Eric
+
 router.get('/homepage', (req, res) => {
   res.render('homepage');
 });
@@ -31,8 +31,6 @@ router.get('/homepage', (req, res) => {
 router.get('/results', (req, res) => {
   res.render('results');
 });
-
-
 
 
 router.get('/login', (req, res) => {

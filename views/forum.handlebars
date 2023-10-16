@@ -1,0 +1,60 @@
+<link rel="stylesheet" href="/css/forum.css">
+
+
+<main>
+  <section class="forumTab1">
+    <h2>welcome to the skincare community!</h2>
+    <br>
+    <p class="alice">browse posts:</p>
+
+
+
+  </section>
+
+
+  <section class="forumTab2">
+    <div class="skincareresults">
+            <p class="alice">create a new forum post:</p>
+    <form>
+      <div class="forumflex">
+        <input placeholder="date"></input> <br>
+        <input id="title" placeholder="title"></input> <br>
+      </div>
+        <textarea class="forumtext" placeholder="enter text"></textarea> <br>
+        <label>upload image:</label>
+        <input type = "file" name = "upload" accept = "image/*"/> <br>
+      <div class="buttonflex">
+        <button class="forumbtn" id="postpreview">preview post</button> <br>
+        <button class="forumbtn" id="postsubmit">post to forum!</button>
+      </div>
+    </form>
+    </div>
+  </section>
+</main>
+
+
+
+
+
+
+  {{!-- {{#if projects.length}}
+  <div class="col-md-6 project-list">
+    <h3>Current Projects:</h3>
+
+
+    {{#each projects as |project|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4><a href="/project/{{project.id}}">{{project.name}}</a></h4>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{project.id}}">DELETE</button>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div> --}}
+
+
+<script src="./js/profile.js"></script>
