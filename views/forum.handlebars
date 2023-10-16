@@ -4,8 +4,41 @@
 <main>
   <section class="forumTab1">
     <h2>welcome to the skincare community!</h2>
-    <br>
-    <p class="alice">browse posts:</p>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+
+    <div style="display: flex; justify-content: center; align-items: center;">
+        <canvas id="myChart" style="width: 100%; max-width: 600px; margin: 40px;"></canvas>
+    </div>
+
+</main>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+<body>
+
+
+<script>
+var xValues = ["Normal/Any", "Oily/Acne Prone", "Dry/Red/Eczema Prone", "Combination", "Inflamed/Sensitive", "Mature"];
+// put values below
+var yValues = [1, 2, 3, 4, 5, 6];
+// put colors below
+var barColors = ['red', 'blue', 'green', 'orange', 'purple', 'pink'];
+new Chart("myChart", {
+  type: "doughnut",
+  data: {
+    labels: xValues,
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues
+    }]
+  },
+  options: {
+    title: {
+      display: true,
+      text: "What is your skin type? User responses"
+    }
+  }
+});
+</script>
   </section>
 
   <section class="forumTab2">
