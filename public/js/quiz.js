@@ -28,6 +28,7 @@ var questions = [
           {text: "Brightening"},
           {text: "Anti-aging"},
           {text: "Relieving skin sensitivity"},
+          {text: "Hyperpigmentation treatment"}
       ]
   },
   {
@@ -61,13 +62,13 @@ var questions = [
 ];
 
 var quiz = document.getElementById("quiz");
+var quizContainer = document.getElementById("quiz-container");
 
 var headlineElement = document.getElementById("headline");
 var questionElement = document.getElementById("question");
 var answerButtonElement = document.getElementById("answer-buttons");
 var nextButton = document.getElementById("next-button");
 
-var scoreElement = document.getElementsByClassName("score");
 var currentQuestionIndex = 0;
 var score = 0;
 
@@ -117,8 +118,6 @@ function nextQuestion() {
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
       showQuestion();
-  } else {
-      showScore();
   }
 }
 
@@ -149,8 +148,6 @@ function selectAnswer (e) {
         selectedButton.style.color = "#594735";
 
         var responses = JSON.parse(localStorage.getItem("userResponse"));
-        console.log(responses.length -1);
-        console.log(currentQuestionIndex);
         if(responses.length -1 > currentQuestionIndex){
             // Check if there are responses in local storage
             if (responses && responses.length > 0) {
@@ -166,7 +163,6 @@ function selectAnswer (e) {
             nextButton.style.display="none";
         });
     })
-
 
     // now should be when to add the values to the local storage
     var userResponse = JSON.parse(localStorage.getItem("userResponse"))||[];
@@ -192,24 +188,19 @@ function nextQuestion() {
   currentQuestionIndex++;
   if (currentQuestionIndex < questions.length) {
       showQuestion();
-      showScore();
   };
 }
 
 nextButton.addEventListener ("click", ()=> {
-        
     if (currentQuestionIndex < questions.length -1) {
         nextQuestion();
     } else {
-        console.log('you have completed the quiz');
-        // we don't want to start the quiz again 
+        console.log('Submitted! You have completed the quiz.'); 
         // display results
-        console.log("submit clicked");
         fetchResponse();
         // startQuiz();
     }
   })
-
 startQuiz();
 
 function fetchResponse()  {
@@ -218,7 +209,7 @@ function fetchResponse()  {
     var responses = JSON.parse(localStorage.getItem("userResponse"));
     console.log(responses);
 
-    // Create a new results object from the input values
+    // create a new results object from the input values
     const quizResult = {
         skin_type: responses[0].chosenAnswer,
         eye_concerns: responses[1].chosenAnswer,
@@ -227,55 +218,197 @@ function fetchResponse()  {
         spf_ingredient: responses[4].chosenAnswer,
         lip_concerns: responses[5].chosenAnswer,
     };
-    
-    // step 2: post value
-    console.log(quizResult);
-    const postResponse = (quizResult) =>
-    fetch('/api/quiz/results', {
+
+// ****************** API CALL Q1 ******************* //
+    fetch('/api/result/question1', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
-        body: JSON.stringify(quizResult)
+        body: JSON.stringify(quizResult),
     })
     .then((res) => res.json())
-    .then((data) => {
-        console.log('Successful POST request:', data);
-        return data;
-    })
-    .catch((error) => {
-        console.log(error);
-        console.error('Error in POST request');
-    });
+    .then((results) => { 
+        console.log('Successful Q1 API POST request:', results);
 
-    // Call our postReview method to make a POST request with our `newReview` object.
-    postResponse(quizResult)
-    .then((data) => console.log(`Responses submitted!`))
-    .catch((err) => console.error(err));
-
-    // //now we redirect the user to the results page 
-    // window.location.replace("/api/quiz/results");
-
+    // **************** APPENDING RESULTS ***************** //
     quiz.style.display = "none";
-    
-    fetch('/api/result/', {
-        method: 'POST', // Use POST method to send data in the request body
-        headers: {
-            'Content-Type': 'application/json', // Specify that you're sending JSON data
-        },
-        body: JSON.stringify(quizResult), 
-    })
-    .then((res) => res.json())
-    .then((data) => {
-        console.log('Successful:', data);
-        return data;
+    let content = "";
+
+    // MAKEUP REMOVER RESULTS
+    content += `<center><b>✨ Skincare Quiz Results ✨</b></center>`
+
+    content += `<br><center>Makeup Remover</center>
+    <b>Selected Skin Type:</b> ${results[2].skin_type} 
+    <br><b>Recommended Product Type:</b> ${results[2].product_type} makeup remover 
+    <br><b>Description:</b> ${results[2].description}
+    <br><b>Custom Product Recommendations</b>
+    <br> ✨ ${results[2].product_cheap}
+    <br> ✨ ${results[2].product_expensive}
+    <br>`
+
+    // CLEANSER RESULTS
+    content += `<br><center>Cleanser</center>
+    <b>Selected Skin Type:</b> ${results[1].skin_type} 
+    <br><b>Recommended Product Type:</b> ${results[1].product_type} cleanser
+    <br><b>Description:</b> ${results[1].description}
+    <br><b>Custom Product Recommendations</b>
+    <br> ✨ ${results[1].product_cheap}
+    <br> ✨ ${results[1].product_expensive}
+    <br>`
+
+    // MOISTURIZER RESULTS
+    content += `<br><center>Moisturizer</center>
+    <b>Selected Skin Type:</b> ${results[0].skin_type} 
+    <br><b>Recommended Product Type:</b> ${results[0].product_type} moisturizer 
+    <br><b>Description:</b> ${results[0].description}
+    <br><b>Custom Product Recommendations</b>
+    <br> ✨ ${results[0].product_cheap}
+    <br> ✨ ${results[0].product_expensive}
+    <br>`
+
+    // EYE CREAM RESULTS
+    content += `<br><center>Eye Cream</center>
+    <b>Selected Eye Area Concerns:</b> ${results[0].skin_type} 
+    <br><b>Recommended Product Type:</b> ${results[0].product_type}
+    <br><b>Description:</b> ${results[0].description}
+    <br><b>Custom Product Recommendations</b>
+    <br> ✨ ${results[0].product_cheap}
+    <br> ✨ ${results[0].product_expensive}
+    <br>`
+
+    // SERUM RESULTS
+    content += `<br><center>Serum</center>
+    <b>Selected Skin Goal:</b> ${results[0].skin_concerns} 
+    <br><b>Recommended Product Type:</b> ${results[0].product_type}
+    <br><b>Recommended Product Ingredients:</b> ${results[0].ingredients}
+    <br><b>Description:</b> ${results[0].description}
+    <br><b>Custom Product Recommendations</b>
+    <br> ✨ ${results[0].product_cheap}
+    <br> ✨ ${results[0].product_expensive}
+    <br>`
+
+    // TONER RESULTS
+    content += `<br><center>Toner</center>
+    <b>Selected Skin Goal:</b> ${results[0].skin_concerns} 
+    <br><b>Recommended Ingredients:</b> ${results[0].ingredients}
+    <br><b>Description:</b> ${results[0].description}
+    <br><b>Custom Product Recommendations</b>
+    <br> ✨ ${results[0].product_cheap}
+    <br> ✨ ${results[0].product_expensive}
+    <br>`
+
+    // SPF RESULTS
+    content += `<br><center>SPF</center>
+    <b>Your preference:</b> ${results[0].description}
+    <br><b>Custom Product Recommendations</b>
+    <br> ✨ ${results[0].product_cheap}
+    <br> ✨ ${results[0].product_expensive}
+    <br>`
+
+    // LIP MOISTURIZER RESULTS
+    content += `<br><center>Lip Moisturizer</center>
+    <b>Selected Lip Concerns:</b> ${results[0].lip_concerns} 
+    <br><b>Recommended Ingredients:</b> ${results[0].ingredients}
+    <br><b>Description:</b> ${results[0].description}
+    <br><b>Custom Product Recommendations</b>
+    <br> ✨ ${results[0].product_cheap}
+    <br> ✨ ${results[0].product_expensive}`
+
+    // Set the content in the quizContainer
+    quizContainer.innerHTML = content;
+
     })
     .catch((error) => {
         console.log(error);
-        console.error('Error ');
+        console.error('Error in Q1 POST request');
     });
 
-    // quiz.textContent = "hello he wassup";
+// ****************** API CALL Q2 ******************* //
+    fetch('/api/result/question2', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(quizResult),
+    })
+    .then((res) => res.json())
+    .then((results) => { 
+        console.log('Successful Q2 API POST request:', results);
+    })
+    .catch((error) => {
+        console.log(error);
+        console.error('Error in Q2 POST request');
+    });
+
+// ****************** API CALL Q3 ******************* //
+     fetch('/api/result/question3', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(quizResult),
+    })
+    .then((res) => res.json())
+    .then((results) => { 
+        console.log('Successful Q3 API POST request:', results);
+    })
+    .catch((error) => {
+        console.log(error);
+        console.error('Error in Q3 POST request');
+    });
+
+// ****************** API CALL Q4 ******************* //
+    fetch('/api/result/question4', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(quizResult),
+    })
+    .then((res) => res.json())
+    .then((results) => {
+        console.log('Successful Q4 API POST request:', results);
+    })
+    .catch((error) => {
+        console.log(error);
+        console.error('Error in Q4 POST request');
+    });
+
+// ****************** API CALL Q5 ******************* //
+    fetch('/api/result/question5', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(quizResult),
+    })
+    .then((res) => res.json())
+    .then((results) => {
+        console.log('Successful Q5 API POST request:', results);
+    })
+    .catch((error) => {
+        console.log(error);
+        console.error('Error in Q5 POST request');
+    });
+
+// ****************** API CALL Q6 ******************* //
+    fetch('/api/result/question6', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(quizResult),
+    })
+    .then((res) => res.json())
+    .then((results) => {
+        console.log('Successful Q6 API POST request:', results);
+    })
+    .catch((error) => {
+        console.log(error);
+        console.error('Error in Q6 POST request');
+    });
+    
 };
 
 

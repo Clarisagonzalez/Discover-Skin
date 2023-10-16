@@ -2,25 +2,7 @@ const router = require('express').Router();
 const { Op } = require('sequelize');
 const { skincareData } = require('../../models');
 
-// router.get('/:data', (req, res) => {
 
-//     skincareData.findAll({
-//         attributes: ['skin_type', 'product_type', 'description', 'product_cheap', 'product_expensive'],
-//         where: {
-//           category: {
-//             [Op.in]: ['Moisturizer', 'Cleanser', 'Makeup Remover'],
-//           },
-//           skin_type: {
-//             [Op.like]: req.params.data.skin_type,
-//           },
-//         },
-//       }).then(results => {
-//         res.setHeader('Content-Type', 'application/json');
-//         res.json(results);
-//       }).catch(err => {
-//         console.error('Error:', err);
-//       });
-//   });
   router.post('/question1', (req, res) => {
     const requestData = req.body; // This contains the data sent from the client
   
