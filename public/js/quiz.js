@@ -76,6 +76,8 @@ var questions = [
   },
 ];
 
+var quiz = document.getElementById("quiz");
+
 var headlineElement = document.getElementById("headline");
 var questionElement = document.getElementById("question");
 var answerButtonElement = document.getElementById("answer-buttons");
@@ -100,7 +102,7 @@ function showQuestion () {
   resetState();
   var currentQuestion = questions[currentQuestionIndex];
   var questionNumber = currentQuestionIndex + 1;
-  questionElement.innerHTML = questionNumber + ". " + currentQuestion.question;
+  questionElement.innerHTML = questionNumber + "/6. " + currentQuestion.question;
 
   headlineElement.innerHTML = currentQuestion.headline;
   
@@ -146,7 +148,7 @@ function selectAnswer (e) {
     var selectedButton = e.target;
 
     console.log(selectedButton.innerText);
-    selectedButton.style.background = "#FFCBA4";
+    selectedButton.style.background = "#FF6BA8";
 
     Array.from(answerButtonElement.children).forEach(button => {
               if(button.getAttribute("data-number") != selectedButton.getAttribute("data-number")){
@@ -159,7 +161,7 @@ function selectAnswer (e) {
         // remove the answer from the local storage
         console.log("removing " + selectedButton.innerText + " from the local storage");
 
-        selectedButton.style.background = "#E75353";
+        selectedButton.style.background = "#FFA05B";
         
         var responses = JSON.parse(localStorage.getItem("userResponse"));
         console.log(responses.length -1);
@@ -200,11 +202,6 @@ function selectAnswer (e) {
     }
 }
 
-
-function showScore () {
-  scoreElement.innerHTML = "Score: " + score + " /10";
-
-}
 
 function nextQuestion() {
   currentQuestionIndex++;
@@ -268,12 +265,15 @@ function fetchResponse()  {
 
     // Call our postReview method to make a POST request with our `newReview` object.
     postResponse(quizResult)
-    .then((data) => console.log(`Responses submitted!`+data))
+    .then((data) => console.log(`Responses submitted!`))
     .catch((err) => console.error(err));
 
-    //now we redirect the user to the results page 
-    window.location.replace("/api/quiz/results");
+    // //now we redirect the user to the results page 
+    // window.location.replace("/api/quiz/results");
 
+    quiz.style.display = "none";
+    
+    // quiz.textContent = "hello he wassup";
 };
 
 
