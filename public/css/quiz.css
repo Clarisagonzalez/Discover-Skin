@@ -1,10 +1,9 @@
 :root {
     --lightPeach: #FDF9F5;
-    --lightCoral: #FFA05B;
+    --orange: #FFA05B;
     --hotPink: #FE415E;
     --pink: #FF6BA8;
     --brownBlack: #594735;
-
 }
 
 * {
@@ -17,16 +16,13 @@
     margin: 20px;
 }
 
-.w-72 {
-    width: 10rem;
-}
 .quiz-container {
     background: var(--lightPeach);
     width: 90%;
     max-width: 65%;
     margin: 100px auto 0;
     margin-top: 60px;
-    border-radius: 20px;
+    border-radius: 40px;
     padding: 30px;
 }
 
@@ -38,7 +34,9 @@
 #headline {
     display: flex;
     text-align: center;
+    justify-content: center;
     color: var(--brownBlack);
+    margin-top: -10px;
 }
 
 .quiz {
@@ -46,9 +44,11 @@
 }
 
 .quiz h2 {
+    margin-top: 10px;
+    margin-bottom: -2px;
     font-size: 22px;
     color: var(--hotPink);
-    font-weight: 900;
+    font-weight: 700;
     padding-bottom: 2%;
     text-align: center;
 }
@@ -73,7 +73,7 @@
 }
 
 .button:disabled {
-    cursor:default;
+    cursor: default;
     border: 1px;
     border: 1px solid var(--brownBlack);
     color: var(--brownBlack);
@@ -93,10 +93,11 @@
 
 .button::not([disabled]) {
     cursor: pointer;
+    color: var(--brownBlack);
 }
 
 #next-button {
-    background: var(--hotPink);
+    background: var(--pink);
     color: white;
     font-weight: 600;
     width: 150px;
@@ -109,11 +110,11 @@
 }
 
 #next-button:hover {
-    background: var(--pink);
+    background: var(--hotPink);
     color: white;
 }
 
 #next-button:active {
-    background-color: var(--focusPink);
+    background-color: var(--pink);
     color: white;
 }

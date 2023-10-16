@@ -144,9 +144,10 @@ function selectAnswer (e) {
     selectedButton.addEventListener("click", () => {
         // remove the answer from the local storage
         console.log("removing " + selectedButton.innerText + " from the local storage");
+        // selected button styling
+        selectedButton.style.background = "none";
+        selectedButton.style.color = "#594735";
 
-        selectedButton.style.background = "#FFA05B";
-        
         var responses = JSON.parse(localStorage.getItem("userResponse"));
         console.log(responses.length -1);
         console.log(currentQuestionIndex);
@@ -277,27 +278,6 @@ function fetchResponse()  {
     // quiz.textContent = "hello he wassup";
 };
 
-
-
-
-// // Collect values from the quiz
-//   const skintype = document.querySelector('#skintype').value.trim();
-//   const skinconcerns = document.querySelector('#concerns').value.trim();
-//   const ingredients = document.querySelector ('#ingredients').value.trim();
-//   // if (skintype && skinconcerns && ingredients) {
-//     // Send a POST request to the API endpoint
-//     const response = await fetch('/api/quiz/results', {
-//       method: 'POST',
-//       body: JSON.stringify({ skintype, skinconcerns, ingredients }),
-//       headers: { 'Content-Type': 'application/json' },
-//     });
-//     console.log(JSON.stringify({ skintype, skinconcerns, ingredients }))
-
-//     if (response.ok) {
-//       console.log(document.querySelector('#submitquizbtn'));
-//       document.location.replace('/results');
-//     }
-       
 
 
 
