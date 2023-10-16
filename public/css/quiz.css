@@ -16,7 +16,7 @@
     margin: 20px;
 }
 
-.quiz-container {
+#quiz-container {
     background: var(--lightPeach);
     width: 90%;
     max-width: 65%;

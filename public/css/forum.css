@@ -1,6 +1,14 @@
+:root {
+    --lightPeach: #FDF9F5;
+    --orange: #FFA05B;
+    --hotPink: #FE415E;
+    --pink: #FF6BA8;
+    --brownBlack: #594735;
+  }
+
 main {
     display: flex;
-    font-family: 'Montserrat', sans-serif;  
+    font-family: 'Montserrat', sans-serif;   
 }
 
 
@@ -9,6 +17,7 @@ main {
     top: 150px;
     left: 60px;
     font-family: 'Montserrat', sans-serif;
+    color: var(--brownBlack);
 }
 
 
@@ -56,8 +65,8 @@ input {
 .forumTab2 {
     width: 400px;
     position: relative;
-    left: 850px;
-    top: 100px;
+    left: 820px;
+    top: 120px;
 }
 
 /*----------------------------- MEDIA QUERIES----------------------- */

@@ -432,17 +432,15 @@ function fetchResponse()  {
     
     // Append Q4 content to the allContentContainer
     allContentContainer.innerHTML += content;
-    // quizContainer.innerHTML = content;
     })
     .catch((error) => {
         console.log(error);
         console.error('Error in Q6 POST request');
     });
 
+    // Append content to quiz
     quizContainer.appendChild(allContentContainer);
-    
 };
-
 
 
 
