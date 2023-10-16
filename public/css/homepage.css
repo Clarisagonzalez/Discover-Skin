@@ -87,3 +87,42 @@ main {
     color: #664524;
     font-size: smaller;
 }
+
+/*----------------------------- MEDIA QUERIES----------------------- */
+@media screen and (max-width: 768px) {
+    .homegraphicL {
+        display: none
+    
+    }
+    .tab1 {
+        left: 2px;
+    }
+    main {
+        display: flex;
+        padding-left: 0px; 
+        
+    }
+    .homebtn {
+        width: 300px;
+        top: 135px;
+        left: 50px;
+    }
+    .tab1text2 {
+        margin-left: 48px;
+        top: 150px;
+        font-size: 25px
+    }
+    .homeheading {
+        top: 190px;
+        left: 30px;
+
+    }
+    nav ul li {
+        margin-left: 0px;
+        padding-bottom: 20px;
+        padding-left: 13px;
+        padding-top: 19px
+    }
+
+
+}

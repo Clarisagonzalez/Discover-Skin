@@ -8,7 +8,6 @@ class quizData extends Model {
   }
 }
 
-
 quizData.init(
   {
     id: {
@@ -24,7 +23,7 @@ quizData.init(
     },
     eye_concerns:{
       type: DataTypes.STRING,
-      defaultValue: "under eye bags &/or inflammation",
+      defaultValue: "undereye bags and/or inflammation",
       allowNull: true,
     },
     serum_choice: {
@@ -39,7 +38,7 @@ quizData.init(
 
     },
     spf_ingredient: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(1234),
       defaultValue: "combination",
       allowNull: true,
     },

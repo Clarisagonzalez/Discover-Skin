@@ -1,0 +1,44 @@
+:root {
+    --lightPeach: #FDF9F5;
+    --orange: #FFA05B;
+    --hotPink: #FE415E;
+    --pink: #FF6BA8;
+    --brownBlack: #594735;
+    --crayolaPeach: #ffcba4;
+    --hoverPeach: #fce8d9; 
+    --brown: #664524;
+}
+
+* {
+    font-family:  'Montserrat',Arial, Helvetica, sans-serif;
+}
+
+#products-heading {
+    color: #664524; 
+    font-family: 'Montserrat';
+}
+ 
+.topRow {
+    background-color: var(--hotPink);
+    color: white;
+}
+
+.productsTable {
+    width: 100%;
+}
+
+/*----------------------------- MEDIA QUERIES----------------------- */
+@media screen and (max-width: 768px) {
+  .productsTable{
+    width: 100%;
+  }
+  nav ul li {
+    margin-left: 0px;
+    padding-bottom: 20px;
+    padding-left: 13px;
+    padding-top: 19px;
+}
+.nav {
+    width: 120%;
+}
+  }  

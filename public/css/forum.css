@@ -1,0 +1,88 @@
+main {
+    display: flex;
+    font-family: 'Montserrat', sans-serif;  
+}
+
+
+.forumTab1 {
+    position: absolute;
+    top: 150px;
+    left: 60px;
+    font-family: 'Montserrat', sans-serif;
+}
+
+
+input {
+    width: 295px;
+    padding: 2%;
+    margin-top: 2%;
+    margin-bottom: 1%;
+    border: none;
+    cursor: pointer;
+}
+
+
+.forumtext {
+    width: 288px;
+    height: 100px;
+    padding: 3%;
+    margin-top: 2%;
+    border: none;
+    cursor: pointer;
+}
+
+
+.forumbtn {
+    width: 100px;
+    padding: 1.5%;
+    margin-bottom: 2%;
+    cursor: pointer;
+    border-color: #E75353;
+    background-color: #E75353;
+    color: #FDF9F5;
+}
+
+
+#postsubmit {
+    margin-left: 2%;
+}
+
+
+.buttonflex {
+    display: flex;
+}
+
+
+.forumTab2 {
+    width: 400px;
+    position: relative;
+    left: 850px;
+    top: 100px;
+}
+
+/*----------------------------- MEDIA QUERIES----------------------- */
+@media screen and (max-width: 768px) {
+    nav {
+        margin-left: 0px;
+        padding-bottom: 20px;
+        padding-left: 13px;
+        padding-top: 19px;
+    }
+    .forumTab1 {
+        top: 170px;
+        left: 15px;
+    }
+    .skincareresults {
+        display: block;
+        margin: auto;
+    }
+
+    .forumTab2 {
+        left: 20px;
+        top: 210px;
+    }
+}
+    
+    
+
+
