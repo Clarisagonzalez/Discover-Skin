@@ -34,7 +34,7 @@ This project utilizes various technologies to achieve its goals. Here are some o
 
 
 ## Deployment 
-[Heroku Link](https://discover-skin-338e1de48355.herokuapp.com/)
+[Heroku Link](https://discover-skin-3435d8d0a5da.herokuapp.com/homepage)
 
 
 ## Visuals
